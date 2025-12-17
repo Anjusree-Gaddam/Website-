@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Our Collection</title>
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1200px-Smiley.svg.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
+    :root{
+        --primary:#d8bb37;
+        --primary-dark:#b89a2c;
+        --secondary:#4a6fa5;
+        --light:#f8f5e6;
+        --dark:#333333;
+    }
+    body{background:linear-gradient(135deg,var(--light) 0%,#f0f0f0 100%);color:var(--dark);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
+
+    header{background:linear-gradient(to right,var(--primary),var(--primary-dark));color:white;text-align:center;padding:20px 0;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    h1{font-size:2.6rem;}
+
+    nav{background-color:var(--primary);padding:15px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    nav ul{display:flex;list-style:none;justify-content:center;gap:30px;}
+    nav a{text-decoration:none;color:var(--dark);font-weight:600;font-size:1.1rem;padding:8px 15px;border-radius:30px;transition:all .3s ease;display:flex;align-items:center;gap:8px;}
+    nav a:hover, nav a.active{background-color:white;color:var(--primary-dark);transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.15);}
+
+    .container{max-width:1200px;margin:40px auto;padding:0 20px;flex:1;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+    .gallery-item{overflow:hidden;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:transform .3s;}
+    .gallery-item img{width:100%;height:280px;object-fit:cover;transition:transform .4s;}
+    .gallery-item:hover img{transform:scale(1.1);}
+
+    footer{background:linear-gradient(to right,var(--primary-dark),#9c7e27);color:white;padding:40px 0 20px;margin-top:auto;}
+    .footer-container{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:0 20px;}
+    .footer-section{flex:1;min-width:250px;margin-bottom:30px;padding:0 15px;}
+    .footer-section h3{font-size:1.4rem;margin-bottom:20px;position:relative;padding-bottom:10px;}
+    .footer-section h3::after{content:'';position:absolute;bottom:0;left:0;width:50px;height:3px;background:white;border-radius:3px;}
+    .footer-section p,.footer-section a{color:rgba(255,255,255,0.85);margin-bottom:12px;display:block;text-decoration:none;transition:all .2s;}
+    .footer-section a:hover{color:white;transform:translateX(5px);}
+    .social-icons{display:flex;gap:15px;margin-top:20px;}
+    .social-icons a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.15);border-radius:50%;font-size:1.2rem;transition:all .3s;}
+    .social-icons a:hover{background:white;color:var(--primary-dark);transform:translateY(-5px);}
+    .copyright{text-align:center;padding-top:25px;border-top:1px solid rgba(255,255,255,0.2);margin-top:20px;color:rgba(255,255,255,0.8);font-size:1rem;}
+
+    @media(max-width:768px){
+        nav ul{gap:10px;flex-wrap:wrap;}
+        h1{font-size:2.2rem;}
+    }
+</style>
+</head>
+<body>
+<header><h1>Our Gallery</h1></header>
+
+<nav>
+    <div class="nav-container">
+        <ul>
+            <a href="./Home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="./About.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="./Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="./Blog.html"><i class="fas fa-blog"></i> Blog</a>
+            <a href="./Gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg" alt="Gallery 1"></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg" alt="Gallery 2"></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/35600/road-sun-rays-path.jpg" alt="Gallery 3"></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg" alt="Gallery 4"></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Gallery 5"></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg" alt="Gallery 6"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We are a team of passionate professionals dedicated to delivering exceptional solutions for our clients. Our mission is to make technology accessible and inspiring.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="./Home.html">Home</a>
+            <a href="./About.html">About Us</a>
+            <a href="./Contact.html">Contact Us</a>
+            <a href="./Blog.html">Blogs</a>
+            <a href="./Gallery.html">Gallery</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 12-243, Gandhi Nagar</p>
+            <p><i class="fas fa-phone"></i> +91 45278936371</p>
+            <p><i class="fas fa-envelope"></i> info@abc.com</p>
+            <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <p>&copy; 2025 My Website. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

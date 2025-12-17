@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Home Page</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1200px-Smiley.svg.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #d8bb37;
+            --primary-dark: #b89a2c;
+            --secondary: #4a6fa5;
+            --light: #f8f5e6;
+            --dark: #333333;
+            --accent: #e74c3c;
+            --gray: #e0e0e0;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--light) 0%, #f0f0f0 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="5" fill="%23ffffff22"/><circle cx="50" cy="50" r="7" fill="%23ffffff22"/><circle cx="80" cy="80" r="5" fill="%23ffffff22"/></svg>');
+            opacity: 0.3;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav a:hover {
+            background-color: white;
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        nav a i {
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        
+        .welcome-section {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+        
+        .welcome-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .welcome-section h2 {
+            background: linear-gradient(to right, var(--secondary), #3a5a8a);
+            color: white;
+            padding: 25px 30px;
+            font-size: 1.8rem;
+        }
+        
+        .welcome-content {
+            padding: 30px;
+        }
+        
+        .welcome-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .feature-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card .icon {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .feature-card .content {
+            padding: 25px;
+        }
+        
+        .feature-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background: linear-gradient(to right, var(--primary-dark), #9c7e27);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                font-size: 0.95rem;
+                padding: 6px 12px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome To Our Home Page</h1>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <a href="./Home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="./About.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="./Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="./Blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="./Gallery.html"><i class="fas fa-images"></i> Gallery</a>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="welcome-section">
+            <h2>Welcome!</h2>
+            <div class="welcome-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam explicabo in ducimus tempora quo facere eos quod excepturi quibusdam distinctio impedit, dolorum molestias eaque repellendus, sunt ut repudiandae doloremque sed?</p>
+                <p>Discover our services and explore what makes us unique. We're dedicated to providing the best experience for our visitors and customers alike. Join us on this journey!</p>
+                <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?cs=srgb&dl=pexels-pixabay-261102.jpg&fm=jpg" alt="Welcome image" class="feature-img">
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="content">
+                    <h3>Creative Solutions</h3>
+                    <p>We provide innovative solutions tailored to your specific needs. Our team of experts is ready to tackle any challenge.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="content">
+                    <h3>Dedicated Team</h3>
+                    <p>Our professionals are committed to excellence in every project. We work collaboratively to achieve outstanding results.</p>
+                    <a href="#">Meet our team →</a>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="content">
+                    <h3>Proven Results</h3>
+                    <p>With over a decade of experience, we've helped hundreds of clients achieve their business objectives.</p>
+                    <a href="#">See case studies →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are a team of passionate professionals dedicated to delivering exceptional solutions for our clients. Our journey began with a simple idea: to create products and services that make a real difference in people's lives.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="./Home.html">Home</a>
+                <a href="./About.html">About Us</a>
+                <a href="./Contact.html">Contact Us</a>
+                 <a href="./Blog.html">Blog</a>
+                <a href="./Gallery.html"> Gallery</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 12-235 D-Block, Gandhi Nagar</p>
+                <p><i class="fas fa-phone"></i> +91 425739702</p>
+                <p><i class="fas fa-envelope"></i> info@abc.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 My Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
